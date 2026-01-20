@@ -8,6 +8,7 @@
 
 body{
     font-family: 'Poppins';
+    
 }
 .navbar {
     background-color: whitesmoke;
@@ -24,7 +25,7 @@ body{
 .navdiv {
     display: flex;
     justify-content: space-around;
-    grid-template-columns: 300px 1fr 1fr;
+    grid-template-columns: 310px 1fr 1fr;
     align-items: center;
     
 }
