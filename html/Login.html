@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Document</title>
+    <link rel="stylesheet" href="/Style/style_login.css">
+    <script src="/JS/login.js"></script>
+</head>
+<body>
+    <header class="nav" >
+        <div class="nav__con">
+            <div><img class="im__s" src="/images/promobilelogo.png"></div>
+                <ul class="lang">
+                    <li><a>FR</a></li>
+                    <li><a class="red">EN</a></li>
+                </ul>
+        </div>
+    </header>
+    <main>
+        <div class="main__div">
+
+        <div class="form__div">
+            <div class="form__div1">
+            <p style="margin:40px 0px 20px 130px; font-size: 40px;">Login</p>
+            <form onsubmit="return mylogin()" id="myform">
+            <div >
+            <label class="label_f">Mobile number / Email ID</label><br>
+            <input class="input_f" placeholder="Enter your Number or Email" type="text"  name="email" value="" required>
+            </div>
+            <div >
+            <label class="label_f" >Password</label><br>
+            <input class="input_f" placeholder="Enter your Password" type="password"  name="password" id="password" value="" required>
+            <div>
+            <input type="checkbox" class="form-check-input" id="showPasswords" onclick="showpass()">
+            <label class="form-check-label" for="showPasswords">Show Password</label>
+            </div>
+            </div>
+            <div ><a href="#" style="padding:0px 20px 20px 210px;font-size: 16px;">Forgot Password?</a>
+            </div>
+            <button type="submit" style="background-color:#d12229" class="btn">Login</button>
+            <div class="mov">Don't have an account? <a href="#">Signup</a></div>
+            </form>
+            </div>
+        </div>
+
+            <div class="img__div" style="position: relative;">
+                <img class="im__s1" src="/images/login_bg.png" style="position: relative;">
+                <div>
+                    <p class="text">Welcome to Promobile!</p><br>
+                    <p class="text1">Log in to manage your mobile plans, track usage, and access exclusive offers.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+         <p>© 2026 Sirius Telecoms Africa SAU. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
