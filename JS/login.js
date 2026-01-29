@@ -1,3 +1,7 @@
+import { MAIL,PWD } from "../src/constant.js";
+
+console.log(MAIL);
+console.log(PWD);
 function showpass() {
   let pwd = document.getElementById("password");
 
@@ -18,12 +22,12 @@ function mylogin(){
      let pass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
      
     let c = 0;
-     if(gmailRegex.test(em) && em === "saravananet32@gmail.com"){
+     if(gmailRegex.test(em) && em === MAIL){
         c++;
      }else{
         alert("Entered incorrect email");
      }
-     if(pass.test(pw) && pw === "Password123" ){
+     if(pass.test(pw) && pw === PWD ){
         c++;
      }
      else{
@@ -36,5 +40,5 @@ function mylogin(){
 }
 
 
-
-
+window.mylogin = mylogin;
+window.showpass = showpass;
