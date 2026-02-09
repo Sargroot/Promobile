@@ -31,17 +31,21 @@
         }
 
         .container {
-            margin: 0px 100px 0px 100px;
+            margin: 0px 150px 0px 150px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            border: 2px solid #fff4f4;
         }
 
         thead {
             background: #d8433c;
+            border-radius: 10px 0px 0px 0px ;
+
         }
 
         th {
@@ -49,12 +53,13 @@
             padding: 12px;
             text-align: center;
             font-weight: 500;
+
         }
 
         td {
             padding: 10px;
             text-align: center;
-            border-bottom: 1px solid #eee;
+
         }
 
         tbody tr:nth-child(even) {
@@ -114,17 +119,31 @@
             padding: 8px;
             color: white;
             border: 0.1px solid grey ;
-            border-radius: 10px;
+            border-radius: 5px;
+            width:110px
             
         }
         #mybtn{
             margin-top: 80px;
-            margin-left: 80%;
+            margin-left: 81%;
             margin-bottom: 10px;
             background-color: white;
             padding: 8px;
             border: 0.1px solid grey ;
-            border-radius: 10px;
+            border-radius: 5px;
+        }
+        .one{
+            border-radius: 10px 0px 0px 0px ;
+        }
+        .two{
+            border-radius: 0px 10px 0px 0px ;
+        }
+
+        tr:last-child td:first-child {
+        border-radius: 0px 0px 0px 10px;       
+        }
+        tr:last-child td:last-child {
+        border-radius: 0px 0px 10px 0px;       
         }
     </style>
 </head>
@@ -133,18 +152,18 @@
 
 <div class="nav"><a style="text-decoration: none;color: black;" href="/html/add_user.html">Users</a></div>
 <a href="/html/add_user.html"><input type="submit"  id="mybtn" value="+ Add User" href="/html/add_user.html"></a>
-<input type="text" id="myInput"  onkeyup="myFunction()" placeholder="Search for table..">
+<input type="text" id="myInput"  onkeyup="myFunction()" placeholder="Filter">
 
 <div class="container">
 <table >
         <thead>
             <tr>
-                <th>User Name</th>
+                <th class="one">User Name</th>
                 <th>Role</th>
                 <th>Mobile No</th>
                 <th>Email ID</th>
                 <th>User Status</th>
-                <th>Action</th>
+                <th class="two">Action</th>
             </tr>
         </thead>
 
@@ -157,7 +176,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 10px 200px 0 200px;
+    margin: 10px 250px 0 250px;
 ">
     <span>
         Items per page 

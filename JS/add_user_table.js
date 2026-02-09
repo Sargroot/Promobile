@@ -18,6 +18,7 @@ function renderTable() {
     const tbody = document.getElementById("userTable");
     tbody.innerHTML = "";
 
+    const totalItems = users.length;
     const start = (currentPage - 1) * rowsPerPage;
     const end = start + rowsPerPage;
     const pageUsers = users.slice(start, end);
@@ -45,7 +46,9 @@ function renderTable() {
     });
 
     document.getElementById("pageInfo").innerText =
-        `Page ${currentPage} of ${Math.ceil(users.length / rowsPerPage)}`;
+        totalItems === 0
+            ? "Items 0 of 0"
+            : `Items ${start + 1} – ${end} of ${totalItems}`;
 }
 
 function nextPage() {
