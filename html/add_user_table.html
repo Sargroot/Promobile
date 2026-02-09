@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <script  src="../JS/add_user_table.js"></script>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 40px;
+            background: white;
+            font-size: 22px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .container {
+            margin: 0px 100px 0px 100px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #fff4f4;
+        }
+
+        thead {
+            background: #d8433c;
+        }
+
+        th {
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #fff4f4;
+        }
+
+        .active {
+            color: green;
+            font-weight: 600;
+        }
+
+        .inactive {
+            color: red;
+            font-weight: 600;
+        }
+
+        .action-cell {
+            position: relative;
+        }
+
+        .dots {
+            cursor: pointer;
+            font-size: 18px;
+            user-select: none;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 30px;
+            width: 150px;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border-radius: 4px;
+            z-index: 5;
+        }
+
+        .menu div {
+            padding: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .menu div:hover {
+            background: #f5f5f5;
+        }
+
+        .menu .danger {
+            color: red;
+        }
+        #myInput{
+            margin-top: 80px;
+            margin-left: 10px;
+            background-color: #d8433c;
+            padding: 8px;
+            color: white;
+            border: 0.1px solid grey ;
+            border-radius: 10px;
+            
+        }
+        #mybtn{
+            margin-top: 80px;
+            margin-left: 80%;
+            margin-bottom: 10px;
+            background-color: white;
+            padding: 8px;
+            border: 0.1px solid grey ;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="nav"><a style="text-decoration: none;color: black;" href="/html/add_user.html">Users</a></div>
+<a href="/html/add_user.html"><input type="submit"  id="mybtn" value="+ Add User" href="/html/add_user.html"></a>
+<input type="text" id="myInput"  onkeyup="myFunction()" placeholder="Search for table..">
+
+<div class="container">
+<table >
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Role</th>
+                <th>Mobile No</th>
+                <th>Email ID</th>
+                <th>User Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="userTable">
+            
+        </tbody>
+    </table>
+</div><br>
+<div style="
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 200px 0 200px;
+">
+    <span>
+        Items per page 
+        <select id="pageLimit" onchange="changeLimit()">
+            <option value="10" selected>10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+        </select>
+    </span>
+
+    <div>
+        <span id="pageInfo"></span>
+        <span onclick="prevPage1()" style="margin-left: 10px;cursor: pointer; ">|<</span>
+        <span onclick="prevPage()" style="margin-left: 10px;cursor: pointer;"><</span>
+        <span onclick="nextPage()" style="margin-left: 10px;cursor: pointer;">></span>
+        <span onclick="nextPage1()" style="margin-left: 10px;cursor: pointer;">>|</span>
+    </div>
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
