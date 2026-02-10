@@ -1,132 +1,38 @@
-var countrySateCityinfo = {
-    Australia: {
-        "Western Australia": {
-            Broome: ["672511", "613181", "617101"],
-            Coolgardie: ["642191", "614312"]
-        },
-        Tasmania: {
-            Hobart: ["700110", "711520"],
-            Launceston: ["725110", "711334"],
-            Burnie: ["732011", "711315"]
-        }
-    },
-    Germany: {
-        Bavaria: {
-            Munich: ["803131", "801333", "801335"],
-            Numemberg: ["904012", "904103", "901404"]
-        },
-        Hessen: {
-            Frankfurt: ["603061", "160309", "601310"],
-            Surat: ["552416", "552147", "515248", "515249"]
-        }
-    },
+var countryStateInfo = {
+        USA: ['Alabama', 'Alaska', 'California', 'Texas', 'New York'],
+        India:['Tamil Nadu','Puducherry','Kerala'],
+        UK: ['England', 'Scotland', 'Wales', 'Northern Ireland']
 
-    India: {
-        "Tamil Nadu": {
-            Chennai: ["600001", "600002", "600003"],
-            Viluppuram: ["605103", "605104", "605105"],
-            Tanjore:["613002", "613005", "613007"]
-        },
-        Puducherry: {
-            Puducherry: ["605001", "605013"],
-            karikal: ["609001", "609013"],
-            Mahe: ["673311"]
-        }
-    }
-    
 }
 
-window.onload = function(){
-    const selectCountry = document.getElementById('country'),
-        selectState = document.getElementById('state'),
-        selectCity = document.getElementById('city'),
-        selectZip = document.getElementById('zip'),
-        selects = document.querySelectorAll('select')
+window.onload = function () {
+    const selectCountry = document.getElementById('country');
+    const selectState = document.getElementById('state');
+    const selects = document.querySelectorAll('select');
 
-        selectState.disabled = true
-        selectCity.disabled = true
-        selectZip.disabled = true
+    selectState.disabled = true;
+
+    selects.forEach(select => {
+        select.style.cursor = select.disabled ? "auto" : "pointer";
+    });
+
+    for (let country in countryStateInfo) {
+        selectCountry.options[selectCountry.options.length] =new Option(country, country);
+    }
+
+    selectCountry.onchange = function (e) {
+        selectState.disabled = false;
+        selectState.length = 1; 
 
         selects.forEach(select => {
-            if(select.disabled == true){
-                select.style.cursor = "auto"
-            }
-            else{
-                select.style.cursor = "pointer"
-            }
-        })
+            select.style.cursor = select.disabled ? "auto" : "pointer";
+        });
 
-        for(let country in countrySateCityinfo){
-            selectCountry.options[selectCountry.options.length] = new Option(country, country)
-        }
- 
-
-        selectCountry.onchange = (e) =>{
-            
-            selectState.disabled = false
-            selectCity.disabled = true
-            selectZip.disabled = true
-
-            selects.forEach(select => {
-                if(select.disabled == true){
-                    select.style.cursor = "auto"
-                }
-                else{
-                    select.style.cursor = "pointer"
-                }
-            })
-
-            selectState.length = 1
-            selectCity.length = 1
-            selectZip.length = 1
-
-            for(let state in countrySateCityinfo[e.target.value]){
-                selectState.options[selectState.options.length] = new Option(state, state)
-            }
-        }
-
-        selectState.onchange = (e) =>{
-            selectCity.disabled = false
-            selectZip.disabled = true
-
-            selects.forEach(select => {
-                if(select.disabled == true){
-                    select.style.cursor = "auto"
-                }
-                else{
-                    select.style.cursor = "pointer"
-                }
-            })
-
-            selectCity.length = 1
-            selectZip.length = 1
-
-            for(let city in countrySateCityinfo[selectCountry.value][e.target.value]){
-                selectCity.options[selectCity.options.length] = new Option(city, city)
-            }
-        }
-
-        selectCity.onchange = (e) =>{
-            selectZip.disabled = false
-
-            selects.forEach(select => {
-                if(select.disabled == true){
-                    select.style.cursor = "auto"
-                }
-                else{
-                    select.style.cursor = "pointer"
-                }
-            })
-            
-            selectZip.length = 1
-
-            let zips = countrySateCityinfo[selectCountry.value][selectState.value][e.target.value]
-            
-            for(let i=0; i<zips.length; i++){
-                selectZip.options[selectZip.options.length] = new Option(zips[i], zips[i])
-            }
-        }
-}
+        countryStateInfo[e.target.value].forEach(state => {
+            selectState.options[selectState.options.length] =new Option(state, state);
+        });
+    };
+};
 
 
 function myadd() {
@@ -138,7 +44,13 @@ function myadd() {
     const role = a.role.value;
     const em = a.email.value.trim();
     const pin = a.pincode.value.trim();
+    const crt = a.country.value;
     const status = "Active";
+    const ad = a.address.value.trim();
+    const state = a.state.value;
+    const street = a.street.value.trim();
+
+
 
     if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(em)) {
         alert("Entered incorrect email");
@@ -166,7 +78,17 @@ function myadd() {
         mobile: mno,
         email: em,
         city,
-        status
+        status,
+        country:crt,
+        address:ad,
+        state,
+        street,
+        pincode:pin,
+
+    created_on: new Date().toLocaleString(),
+    created_by: un,          
+    last_updated: new Date().toLocaleString(),
+    last_updated_by: un
     };
 
     let users = window.name ? JSON.parse(window.name) : [];

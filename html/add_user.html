@@ -24,22 +24,21 @@
         <input type="text" id="address" name="address" placeholder="Enter House / Apartment number" required><br>
 
         <label for="city">City / Village Name</label><br>
-        <select name="city" id="city">
-            <option value="" >Enter City / village name</option>
-        </select><br>
+        <input type="text" id="city" name="city" placeholder="Enter City / village name" required><br>
+
         <label for="country">Country</label><br>
-        <select name="country" id="country">
+        <select name="country" id="country" required>
             <option value="" >Enter Country Name</option>
         </select><br>
 
         </div>
         <div class="pad">
         <label for="role">Role</label><br>
-        <select id="role" name="role" >
+        <select id="role" name="role" required>
         <option value="" style="color: grey;" disabled selected hidden>Select Role</option>
-        <option value="admin">Admin</option>
-        <option value="customer">Customer</option>
-        <option value="agent">Agent</option>
+        <option value="Admin">Admin</option>
+        <option value="Customer">Customer</option>
+        <option value="Agent">Agent</option>
         </select><br>
         <label for="email">Email Address</label><br>
         <input type="email" id="email" name="email" placeholder="Enter Email Address" required><br>
@@ -47,13 +46,12 @@
         <input type="text" id="street" name="street" placeholder="Enter Street Name" required><br>
 
         <label for="state">State</label><br>
-        <select name="state" id="state">
+        <select name="state" id="state" required>
             <option value="" >Enter State Name</option>
         </select><br>
         <label for="pincode">Pincode</label><br>
-        <select name="pincode" id="zip">
-            <option value="" >Enter pincode</option>
-        </select><br>
+        <input type="number" id="zip" name="pincode" placeholder="Enter pincode" required><br>
+
         </div>
         <div><button class="move" type="reset">Cancel</button></div>
         <div><button class="move2"  type="submit">Submit</button></div>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <title>View Details</title>
+    <!-- <script src="../JS/add_user_table.js"></script> -->
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: Poppins;
+    }
+    nav{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 18px 40px;
+        background: white;
+        font-size: 30px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        z-index: 10;
+
+    }
+    .container_o{
+        width:550px;
+        height: 550px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+        margin: 150px 0px 0px 270px;
+        border-radius: 10px;
+        background-color: whitesmoke;
+        padding: 40px;      
+
+    }
+    .container_in{  
+    display: grid;
+    column-gap: 60px;
+    grid-template-columns: repeat(2,1fr);
+
+    }
+    .move{
+    background-color: transparent;
+    border: 2px solid #d8433c;
+    color: #d8433c;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    font-weight: 900;
+    }
+    .a{
+        margin: 0;
+        color: rgb(128, 128, 128);
+        font-size: 14px;
+    }
+    .b{
+        margin: 0;
+        font-size: 16px;
+    }
+
+
+
+</style>
+</head>
+<body>
+    <nav>
+        <p>View Plan</p>
+    </nav>
+    <main>
+        <div class="container_o">   
+            <div class="container_in">
+                <div><p class="a">Status</p>
+                <p class="b" id="status_d"></p><br>
+                <p class="a">Mobile No</p>
+                <p class="b" id="mobno_d"></p><br>
+
+                <p class="a">Country</p>
+                <p class="b" id="country_d"></p><br>
+                <p class="a">City / Village Name</p>
+                <p class="b" id="city_d"></p><br>
+                <p class="a">Address No</p>
+                <p class="b" id="address_d"></p><br>
+
+
+
+                <p class="a">Created on</p>
+                <p class="b" id="created_on_d"></p><br>
+                <p class="a">Last Update on</p>
+                <p class="b" id="last_update_on_d"></p><br>
+                </div>
+                <div>
+                <p class="a">Role</p>
+                <p class="b" id="role_d"></p><br>
+               <p class="a">Email ID</p>
+                <p class="b" id="email_d"></p><br>
+
+                <p class="a">State</p>
+                <p class="b" id="state_d"></p><br>
+                <p class="a">Street Name</p>
+                <p class="b" id="street_d"></p><br>
+                <p class="a">Pincode</p>
+                <p class="b" id="pincode_d"></p><br>
+
+
+
+
+                <p class="a">Created By</p>
+                <p class="b" id="created_by_d"></p><br>
+                <p class="a">Last Update by</p>
+                <p class="b" id="last_update_by_d"></p><br>
+                </div>  
+            </div>
+            <div><button class="move" onclick="window.history.back()">Back</button></div>
+        </div>
+    </main>
+<script>
+    const all_d = new URLSearchParams(window.location.search);
+
+    document.getElementById("status_d").innerText =
+        all_d.get("status");
+
+    document.getElementById("created_on_d").innerText =
+        all_d.get("created_on");
+
+    document.getElementById("created_by_d").innerText =
+        all_d.get("created_by");
+
+    document.getElementById("last_update_on_d").innerText =
+        all_d.get("last_updated_on");
+
+    document.getElementById("last_update_by_d").innerText =
+        all_d.get("last_updated_by");
+    document.getElementById("role_d").innerText =
+        all_d.get("role_s");
+    document.getElementById("mobno_d").innerText =
+        all_d.get("mobile_s");
+    document.getElementById("email_d").innerText =
+        all_d.get("email_s");
+
+    document.getElementById("country_d").innerText =
+        all_d.get("country_s");
+    document.getElementById("city_d").innerText =
+        all_d.get("city_s");
+    document.getElementById("address_d").innerText =
+        all_d.get("address_s");
+    document.getElementById("state_d").innerText =
+        all_d.get("state_s");
+    document.getElementById("street_d").innerText =
+        all_d.get("street_s");
+    document.getElementById("pincode_d").innerText =
+        all_d.get("zip_s");        
+</script>
+
+</body>
+</html>

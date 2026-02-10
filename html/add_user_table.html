@@ -52,8 +52,7 @@
             color: white;
             padding: 12px;
             text-align: center;
-            font-weight: 500;
-
+            font-weight: 500;            
         }
 
         td {
@@ -140,11 +139,22 @@
         }
 
         tr:last-child td:first-child {
-        border-radius: 0px 0px 0px 10px;       
+            border-radius: 0px 0px 0px 10px;       
         }
         tr:last-child td:last-child {
-        border-radius: 0px 0px 10px 0px;       
+            border-radius: 0px 0px 10px 0px;       
         }
+        .sort-icons {
+            display: inline-flex;
+            flex-direction: column;       
+            line-height: 0.9;
+        }
+
+        .sort-icons span {
+            cursor: pointer;
+            font-size: 10px;
+        }
+
     </style>
 </head>
 
@@ -155,14 +165,50 @@
 <input type="text" id="myInput"  onkeyup="myFunction()" placeholder="Filter">
 
 <div class="container">
-<table >
+<table>
         <thead>
             <tr>
-                <th class="one">User Name</th>
-                <th>Role</th>
-                <th>Mobile No</th>
-                <th>Email ID</th>
-                <th>User Status</th>
+                <th class="one">
+                User Name<sup>
+                <span class="sort-icons">
+                    <span onclick="sortBy('username', this, 'asc')" >▲</span>
+                    <span onclick="sortBy('username', this, 'desc')" >▼</span>
+                </span></sup>
+                </th>
+
+                <th>
+                Role<sup>
+                <span class="sort-icons">
+                    <span onclick="sortBy('role', this, 'asc')">▲</span>
+                    <span onclick="sortBy('role', this, 'desc')">▼</span>
+                </span></sup>
+                </th>
+
+                <th>
+                Mobile No<sup>
+                <span class="sort-icons">
+                    <span onclick="sortBy('mobile', this, 'asc')">▲</span>
+                    <span onclick="sortBy('mobile', this, 'desc')" >▼</span>
+                </span></sup>
+                </th>
+
+                <th>
+                Email ID<sup>
+                <span class="sort-icons">
+                    <span onclick="sortBy('email', this, 'asc')">▲</span>
+                    <span onclick="sortBy('email', this, 'desc')">▼</span>
+                </span></sup>
+                </th>
+
+                <th>
+                User Status<sup>
+                <span class="sort-icons">
+                    <span onclick="sortBy('status', this, 'asc')">▲</span>
+                    <span onclick="sortBy('status', this, 'desc')">▼</span>
+                </span></sup>
+                </th>
+
+
                 <th class="two">Action</th>
             </tr>
         </thead>
@@ -189,10 +235,10 @@
 
     <div>
         <span id="pageInfo"></span>
-        <span onclick="prevPage1()" style="margin-left: 10px;cursor: pointer; ">|<</span>
+        <span onclick="prevPage1()" style="margin-left: 10px;cursor: pointer; ">I<</span>
         <span onclick="prevPage()" style="margin-left: 10px;cursor: pointer;"><</span>
         <span onclick="nextPage()" style="margin-left: 10px;cursor: pointer;">></span>
-        <span onclick="nextPage1()" style="margin-left: 10px;cursor: pointer;">>|</span>
+        <span onclick="nextPage1()" style="margin-left: 10px;cursor: pointer;">>I</span>
     </div>
 
 </div>
